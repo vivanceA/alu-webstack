@@ -18,11 +18,11 @@ global
         ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
         ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets
 frontend https_frontend
-    bind *:443 ssl crt /etc/letsencrypt/live/www.vivance.tech/privkey.pem
+    bind *:443 ssl crt /etc/haproxy/ssl/www.vivance.tech.pem
     mode http
-    default_backend holberton_backend
+    default_backend web-backend
 
-backend holberton_backend
+backend web-backend
     mode http
     server 5674-web-01 54.234.206.235:80
     server 5674-web-02 34.227.56.190:80
